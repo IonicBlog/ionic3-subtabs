@@ -1,0 +1,44 @@
+.ion-tab-icon-base {
+  width: 32px;
+  height: 32px;
+  padding: 4px 4px 2px;
+}
+
+.ion-tab-icon-md-base {
+  min-width: 0 !important;
+  height: 32px;
+}
+
+$tabImageName: 'tab1' 'tab2' 'tab3' 'tab4' 'tab5';
+@for $i from 1 to 6 {
+  //for ios  
+  .ion-ios-tab-#{nth($tabImageName, $i)} {
+    @extend .ion-tab-icon-base;
+    content: url("../assets/img/#{nth($tabImageName, $i)}_selected.png");
+  }
+  .ion-ios-tab-#{nth($tabImageName, $i)}-outline {
+    @extend .ion-tab-icon-base;
+    content: url("../assets/img/#{nth($tabImageName, $i)}.png");
+  } // for android  
+  .tabs-md .tab-button[aria-selected=true] {
+    .ion-md-tab-#{nth($tabImageName, $i)} {
+      @extend .ion-tab-icon-md-base;
+      content: url("../assets/img/#{nth($tabImageName, $i)}_selected.png");
+    }
+  }
+  .tabs-md .tab-button[aria-selected=false] {
+    .ion-md-tab-#{nth($tabImageName, $i)} {
+      @extend .ion-tab-icon-md-base;
+      content: url("../assets/img/#{nth($tabImageName, $i)}.png");
+    }
+  }
+}
+
+// .bigtab {
+//   position: absolute;
+//   z-index: 100;
+//   bottom: 1px;
+//   height: 65px;
+//   width: 65px;
+//   left: （100px / 2)
+// }
